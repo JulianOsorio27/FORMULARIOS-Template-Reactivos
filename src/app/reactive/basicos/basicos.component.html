@@ -1,1 +1,80 @@
-<p>basicos works!</p>
+<h2>Reactivos: Básicos</h2>
+<hr>
+
+<div class="row">
+
+    <div class="col">
+
+        <form (ngSubmit)="guardar()" autocomplete="off" action="" [formGroup]="miFormulario">
+
+            <!-- Campo de producto -->
+            <div class="mb-3 row ">
+
+                <label for="" class="col-sm-3 col-form-label "> Producto </label>
+
+                <div class="col-sm-9">
+                    <input pattern="[a-zA-Z]*" type="text" class="form-control" placeholder="Nombre del producto" formControlName="nombre">
+                    <span *ngIf="esInvalid('nombre')" class="form-text text-danger "> Debe de ser de 3 letras </span>
+                </div>
+
+            </div>
+            <!-- Cierre de producto -->
+
+            <!-- Campo de precio -->
+            <div class="mb-3 row ">
+
+                <label for="" class="col-sm-3 col-form-label "> Precio </label>
+
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" placeholder="Precio del producto" formControlName="precio">
+                    <span *ngIf="esInvalid('precio')" class="form-text text-danger "> El precio debe ser mayor a cero(0) </span>
+                </div>
+
+            </div>
+            <!-- Cierre de precio -->
+
+            <!-- Campo de existencias -->
+            <div class="mb-3 row ">
+
+                <label for="" class="col-sm-3 col-form-label "> Existencias </label>
+
+                <div class="col-sm-9">
+                    <input name="existencias" type="number" class="form-control" placeholder="Existencias del producto" formControlName="existencias">
+                    <span *ngIf="esInvalid('existencias')" class="form-text text-danger "> Las existencias deben ser mayor a cero(0) </span>
+                </div>
+
+            </div>
+            <!-- Cierre de precio -->
+
+            <!-- Boton submit -->
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary float-end ">Guardar</button>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre> {{miFormulario.valid  }} </pre>
+
+        <span>Pristine</span>
+        <pre> {{miFormulario.pristine  }} </pre>
+
+        <span>Touched</span>
+        <pre> {{miFormulario.touched  }} </pre>
+
+        <span>Value</span>
+        <pre> {{miFormulario.value | json }} </pre>
+
+    </div>
+</div>
